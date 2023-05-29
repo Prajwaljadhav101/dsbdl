@@ -1,0 +1,41 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+
+df = pd.read_csv('titanic1.csv')
+
+df
+
+df.isnull().sum()
+
+df = df.drop('Cabin',axis = 1)
+
+df['Age'] = df['Age'].fillna(df['Age'].mean())
+df['Fare'] = df['Fare'].fillna(df['Fare'].mean())
+
+df
+
+df.isnull().sum()
+
+df.info
+
+df.dtypes
+
+#sns.displot(df['Age'])
+
+#sns.distplot(df['Age'])
+
+#sns.histplot(x = df['Age'])
+
+#sns.boxplot(x = df['Age'])
+
+#sns.countplot(x=df['Age'], hue= df['Sex'])
+
+#sns.countplot(x = df['Sex'],hue = df['Survived'])
+
+sns.boxplot(x=df['Sex'],y=df['Age'])
+
+sns.boxplot(x=df['Sex'],y=df['Age'],hue=df['Survived'])
+
+#sns.countplot(x=df['Age'], hue= df['Sex'])

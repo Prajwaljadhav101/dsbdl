@@ -1,0 +1,38 @@
+import numpy as np
+import pandas as pd
+
+# Load the Dataset into pandas dataframe.
+df = pd.read_csv('airquality.csv')
+
+df
+
+# check for missing values in the data using pandas isnull(), describe() function 
+df.isnull()
+
+df.isnull().sum()
+
+df.describe()
+
+# Check the dimensions of the data frame.
+df.shape
+
+#  Provide variable descriptions. Types of variables etc.
+df.dtypes
+
+# Turn categorical variables into quantitative variables in Python.
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+
+df['humidity'] = le.fit_transform(df['humidity'])
+
+df
+
+df['humidity'].unique()
+
+df.dtypes
+
+# If variables are not in the correct data type, apply proper type conversions.
+df['Unnamed: 0'] = df['Unnamed: 0'].astype('float')
+
+df.dtypes
+
